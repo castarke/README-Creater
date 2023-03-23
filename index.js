@@ -101,18 +101,6 @@ function readMe(response) {
 }
 
 // TODO: Create a function to initialize app
-// function init(questions) {
-//     inquirer.prompt(questions).then(response => {
-//         try{
-//         const generateReadme = readMe(response);
-//         fs.writeFile("README.md", generateReadme);
-//         console.log('README has been generated');
-//         }
-//         catch(err){
-//             console.log(err);
-//         }
-//     });
-// };
 function init() {
     inquirer.prompt(questions).then(function(response) {
         const generateReadme = readMe(response)
