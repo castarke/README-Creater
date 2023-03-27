@@ -1,11 +1,11 @@
 // TODO: Include packages needed for this application
+// linking required applications
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateMarkdown = require('./generateMarkdown');
 
 // TODO: Create an array of questions for user input
-// description, installation instructions, usage information, contribution guidelines, and test instructions
-// const questions = [];
+// creating questions for user to answer
 inquirer
 const questions = [
     {
@@ -68,10 +68,9 @@ const questions = [
     }
 
 ];
-// TODO: Create a function to write README file
 
 // TODO: Create a function to initialize app
-
+// creating a function to generate readme and answers to questions as well as an error 
 function init() {
     inquirer.prompt(questions).then(function(answers) {
         fs.writeFile('README.md', generateMarkdown({...answers}), function(err) {
