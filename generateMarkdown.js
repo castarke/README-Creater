@@ -43,6 +43,8 @@ function generateMarkdown(data) {
 
   * [License](#license)
 
+  *  [Questions](#email)
+
 ## Description:
   ${data.description}
 ## Installation
