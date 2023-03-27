@@ -43,7 +43,7 @@ function generateMarkdown(data) {
 
   * [License](#license)
 
-  *  [Questions](#email)
+  *  [Questions](#questions)
 
 ## Description:
   ${data.description}
@@ -58,7 +58,7 @@ function generateMarkdown(data) {
 
   ${renderLicenseLink(data.license)}
 
-## Have a Question? 
+## Questions 
 
   Please reach out via email to my email address: ${data.email}
 
