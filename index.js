@@ -1,6 +1,8 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
+const generateMarkdown = require('./generateMarkdown');
+
 // TODO: Create an array of questions for user input
 // description, installation instructions, usage information, contribution guidelines, and test instructions
 // const questions = [];
@@ -39,7 +41,7 @@ const questions = [
     {
         type:'input',
         name:'test',
-        message:'Imput your test data here'
+        message:'Input your test data here'
      },
 
     {
@@ -48,9 +50,8 @@ const questions = [
         message:'Please choose a license from the following list',
         choices:[
         "None",
-        "Apache 2.0",
-        "GPL 3.0",
-        "BSD 3",
+        "Apache_2.0",
+        "GNU_GPLv3",
         "MIT",
      ]
     },
@@ -68,43 +69,12 @@ const questions = [
 
 ];
 // TODO: Create a function to write README file
-// function writeToFile(fileName, data) {}
-function readMe(response) {
-    return `
-    # #${response.title}
-
-    ## Table of Contents
-        -Description
-        -Installation
-        -Usage
-        -Credits
-        -Test
-        -License
-
-    ## Description:
-        ${response.description}
-    ## Installation
-        ${response.installation}
-    ## Usage
-        ${response.usage}
-    ## Credits
-        ${response.credits}
-    ## Test
-        ${response.test}
-    ## License
-        ${response.license}
-    ## Have a Question? 
-
-        Please reach out via email to my email address: ${response.email}
-
-        Please also visit my Github Repo at github.com/${response.github}`;
-}
 
 // TODO: Create a function to initialize app
+
 function init() {
-    inquirer.prompt(questions).then(function(response) {
-        const generateReadme = readMe(response)
-        fs.writeFile('README.md', generateReadme, function(err) {
+    inquirer.prompt(questions).then(function(answers) {
+        fs.writeFile('README.md', generateMarkdown({...answers}), function(err) {
             if(err) {
                 console.log(err)
             }
